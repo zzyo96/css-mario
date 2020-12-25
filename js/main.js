@@ -1,7 +1,9 @@
 !function(){
   var container = document.querySelector('#code')
   var styleTag = document.querySelector('#styleTag')
-  var duration = 50
+  var duration = 50;
+  var id = null;
+  var n = 5
   $('.actions').on('click', 'button', function(e){
     let $button = $(e.currentTarget) // button
     let speed = $button.attr('data-speed')
@@ -21,17 +23,17 @@
         // window.location.reload()
         container.innerHTML = ''
         styleTag.innerHTML = ''
+        n = 0;
+        window.clearTimeout(id);
         writeCode('',code)
         break
       case 'agains':
-        alert('点上面的按钮100下蟹蟹')
+        alert('点一百次"再看1遍"即可')
     }
   })
   function writeCode(prefix, code, fn){
-    // var container = document.querySelector('#code')
-    // var styleTag = document.querySelector('#styleTag')
-    let n = 5
-    let id
+    var container = document.querySelector('#code')
+    var styleTag = document.querySelector('#styleTag')
     container.innerHTML = code
     styleTag.innerHTML = code
     id = setTimeout(function run(){
